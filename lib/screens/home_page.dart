@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:spacex_graphql/models/graphql/graphql_api.dart';
@@ -8,13 +9,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF08090A),
+       backgroundColor: Color(0xFF191c1f),
       appBar: AppBar(
         backgroundColor: Color(0xFF08090A),
         title: Text("SpaceX Launches"),
         centerTitle: true,
       ),
       body: Container(
+        width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Query(
           options: QueryOptions(
@@ -40,8 +42,11 @@ class HomePage extends StatelessWidget {
 
             return CarouselSlider(
               options: CarouselOptions(
-                autoPlay: false,
-                aspectRatio: 0.62,
+                autoPlay: kIsWeb,
+                autoPlayAnimationDuration: Duration(
+                  seconds: 3
+                ) ,
+                aspectRatio: 0.6,
                 enlargeCenterPage: true,
               ),
               items: launches

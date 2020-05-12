@@ -1,6 +1,8 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:spacex_graphql/models/graphql/graphql_api.graphql.dart';
 import 'package:spacex_graphql/screens/details_page.dart';
+import '../util/util.dart';
 
 class ListItem extends StatelessWidget {
   final PastLaunchesList$Query$LaunchesPast data;
@@ -35,7 +37,7 @@ class ListItem extends StatelessWidget {
                   tag: data.id,
                   child: Image.network(
                     data.links.flickr_images[0],
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                     width: MediaQuery.of(context).size.width,
                     height: 1000,
                   ),
@@ -45,23 +47,43 @@ class ListItem extends StatelessWidget {
             Positioned(
               bottom: 35,
               left: 10,
-              child: Text(
-                data.mission_name,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold),
+              child: FittedBox(
+                fit: BoxFit.cover,
+                child: AutoSizeText(
+                  data.mission_name,
+                  stepGranularity: 1,
+                  maxLines: 1,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
             ),
             Positioned(
               bottom: 10,
               left: 15,
-              child: Text(
-                "using ${data.rocket.rocket_name}",
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 18,
-                ),
+              child: RichText(
+                text: TextSpan(
+                    text: "",
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 18,
+                    ),
+                    children: [
+                      TextSpan(text: "Launched "),
+                      TextSpan(
+                          text: "${data.relativeDate} ",
+                          style: TextStyle(
+                            color: Colors.amber[800].withOpacity(0.8),
+                          )),
+                      TextSpan(
+                        text: "using ",
+                      ),
+                      TextSpan(
+                          text: "${data.rocket.rocket_name}",
+                          style: TextStyle(color: Colors.amber[800]))
+                    ]),
               ),
             ),
           ],
