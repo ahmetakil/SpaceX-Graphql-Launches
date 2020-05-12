@@ -57,10 +57,22 @@ class PastLaunchesList$Query$LaunchesPast with EquatableMixin {
 
   PastLaunchesList$Query$LaunchesPast$Rocket rocket;
 
-  String launch_date_utc;
+  int launch_date_unix;
+
+  String details;
+
+  bool launch_success;
 
   @override
-  List<Object> get props => [id, mission_name, links, rocket, launch_date_utc];
+  List<Object> get props => [
+        id,
+        mission_name,
+        links,
+        rocket,
+        launch_date_unix,
+        details,
+        launch_success
+      ];
   Map<String, dynamic> toJson() =>
       _$PastLaunchesList$Query$LaunchesPastToJson(this);
 }
@@ -167,7 +179,19 @@ class PastLaunchesListQuery
                           selectionSet: null)
                     ])),
                 FieldNode(
-                    name: NameNode(value: 'launch_date_utc'),
+                    name: NameNode(value: 'launch_date_unix'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'details'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'launch_success'),
                     alias: null,
                     arguments: [],
                     directives: [],

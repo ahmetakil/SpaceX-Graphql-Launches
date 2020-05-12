@@ -48,7 +48,9 @@ PastLaunchesList$Query$LaunchesPast
         ? null
         : PastLaunchesList$Query$LaunchesPast$Rocket.fromJson(
             json['rocket'] as Map<String, dynamic>)
-    ..launch_date_utc = json['launch_date_utc'];
+    ..launch_date_unix = json['launch_date_unix']
+    ..details = json['details'] as String
+    ..launch_success = json['launch_success'] as bool;
 }
 
 Map<String, dynamic> _$PastLaunchesList$Query$LaunchesPastToJson(
@@ -58,7 +60,9 @@ Map<String, dynamic> _$PastLaunchesList$Query$LaunchesPastToJson(
       'mission_name': instance.mission_name,
       'links': instance.links?.toJson(),
       'rocket': instance.rocket?.toJson(),
-      'launch_date_utc': instance.launch_date_utc,
+      'launch_date_unix': instance.launch_date_unix,
+      'details': instance.details,
+      'launch_success': instance.launch_success,
     };
 
 PastLaunchesList$Query _$PastLaunchesList$QueryFromJson(

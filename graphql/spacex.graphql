@@ -9,6 +9,8 @@ query pastLaunchesList($limit: Int!){
         rocket{
             rocket_name
         }
-        launch_date_utc
+        launch_date_unix
+        details
+        launch_success
     }
 }
