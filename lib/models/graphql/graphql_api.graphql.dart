@@ -26,6 +26,96 @@ class PastLaunchesList$Query$LaunchesPast$Links with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$Mass
+    with EquatableMixin {
+  PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$Mass();
+
+  factory PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$Mass.fromJson(
+          Map<String, dynamic> json) =>
+      _$PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$MassFromJson(json);
+
+  int kg;
+
+  @override
+  List<Object> get props => [kg];
+  Map<String, dynamic> toJson() =>
+      _$PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$MassToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$Engines
+    with EquatableMixin {
+  PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$Engines();
+
+  factory PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$Engines.fromJson(
+          Map<String, dynamic> json) =>
+      _$PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$EnginesFromJson(json);
+
+  int number;
+
+  @override
+  List<Object> get props => [number];
+  Map<String, dynamic> toJson() =>
+      _$PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$EnginesToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$Height
+    with EquatableMixin {
+  PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$Height();
+
+  factory PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$Height.fromJson(
+          Map<String, dynamic> json) =>
+      _$PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$HeightFromJson(json);
+
+  double meters;
+
+  @override
+  List<Object> get props => [meters];
+  Map<String, dynamic> toJson() =>
+      _$PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$HeightToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class PastLaunchesList$Query$LaunchesPast$Rocket$Rocket with EquatableMixin {
+  PastLaunchesList$Query$LaunchesPast$Rocket$Rocket();
+
+  factory PastLaunchesList$Query$LaunchesPast$Rocket$Rocket.fromJson(
+          Map<String, dynamic> json) =>
+      _$PastLaunchesList$Query$LaunchesPast$Rocket$RocketFromJson(json);
+
+  int cost_per_launch;
+
+  String country;
+
+  String description;
+
+  PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$Mass mass;
+
+  String type;
+
+  PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$Engines engines;
+
+  PastLaunchesList$Query$LaunchesPast$Rocket$Rocket$Height height;
+
+  int boosters;
+
+  @override
+  List<Object> get props => [
+        cost_per_launch,
+        country,
+        description,
+        mass,
+        type,
+        engines,
+        height,
+        boosters
+      ];
+  Map<String, dynamic> toJson() =>
+      _$PastLaunchesList$Query$LaunchesPast$Rocket$RocketToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class PastLaunchesList$Query$LaunchesPast$Rocket with EquatableMixin {
   PastLaunchesList$Query$LaunchesPast$Rocket();
 
@@ -35,8 +125,12 @@ class PastLaunchesList$Query$LaunchesPast$Rocket with EquatableMixin {
 
   String rocket_name;
 
+  String rocket_type;
+
+  PastLaunchesList$Query$LaunchesPast$Rocket$Rocket rocket;
+
   @override
-  List<Object> get props => [rocket_name];
+  List<Object> get props => [rocket_name, rocket_type, rocket];
   Map<String, dynamic> toJson() =>
       _$PastLaunchesList$Query$LaunchesPast$RocketToJson(this);
 }
@@ -176,7 +270,89 @@ class PastLaunchesListQuery
                           alias: null,
                           arguments: [],
                           directives: [],
-                          selectionSet: null)
+                          selectionSet: null),
+                      FieldNode(
+                          name: NameNode(value: 'rocket_type'),
+                          alias: null,
+                          arguments: [],
+                          directives: [],
+                          selectionSet: null),
+                      FieldNode(
+                          name: NameNode(value: 'rocket'),
+                          alias: null,
+                          arguments: [],
+                          directives: [],
+                          selectionSet: SelectionSetNode(selections: [
+                            FieldNode(
+                                name: NameNode(value: 'cost_per_launch'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null),
+                            FieldNode(
+                                name: NameNode(value: 'country'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null),
+                            FieldNode(
+                                name: NameNode(value: 'description'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null),
+                            FieldNode(
+                                name: NameNode(value: 'mass'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: SelectionSetNode(selections: [
+                                  FieldNode(
+                                      name: NameNode(value: 'kg'),
+                                      alias: null,
+                                      arguments: [],
+                                      directives: [],
+                                      selectionSet: null)
+                                ])),
+                            FieldNode(
+                                name: NameNode(value: 'type'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null),
+                            FieldNode(
+                                name: NameNode(value: 'engines'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: SelectionSetNode(selections: [
+                                  FieldNode(
+                                      name: NameNode(value: 'number'),
+                                      alias: null,
+                                      arguments: [],
+                                      directives: [],
+                                      selectionSet: null)
+                                ])),
+                            FieldNode(
+                                name: NameNode(value: 'height'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: SelectionSetNode(selections: [
+                                  FieldNode(
+                                      name: NameNode(value: 'meters'),
+                                      alias: null,
+                                      arguments: [],
+                                      directives: [],
+                                      selectionSet: null)
+                                ])),
+                            FieldNode(
+                                name: NameNode(value: 'boosters'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null)
+                          ]))
                     ])),
                 FieldNode(
                     name: NameNode(value: 'launch_date_unix'),

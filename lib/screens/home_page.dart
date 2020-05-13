@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
                 options: CarouselOptions(
                   autoPlay: true,
                   autoPlayAnimationDuration: Duration(
-                    seconds: 2,
+                    milliseconds: 400,
                   ) ,
                   autoPlayCurve: Curves.easeOutCubic,
                   autoPlayInterval: Duration(seconds: 4),

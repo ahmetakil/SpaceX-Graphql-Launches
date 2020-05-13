@@ -6,8 +6,25 @@ query pastLaunchesList($limit: Int!){
             flickr_images
             mission_patch_small
         }
-        rocket{
+        rocket {
             rocket_name
+            rocket_type
+            rocket {
+                cost_per_launch
+                country
+                description
+                mass {
+                    kg
+                }
+                type
+                engines {
+                    number
+                }
+                height {
+                    meters
+                }
+                boosters
+            }
         }
         launch_date_unix
         details
