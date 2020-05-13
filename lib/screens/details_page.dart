@@ -18,11 +18,6 @@ class _DetailsPageState extends State<DetailsPage> {
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      widget.data.links.flickr_images.forEach((imageUrl) {
-        precacheImage(NetworkImage(imageUrl), context);
-      });
-    });
     imageUrls = widget.data.links.flickr_images;
     super.initState();
   }
