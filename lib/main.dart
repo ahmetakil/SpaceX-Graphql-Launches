@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:spacex_graphql/graphql_provider.dart';
 import 'package:spacex_graphql/screens/home_page.dart';
 
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
+          textTheme: GoogleFonts.hindMaduraiTextTheme(
+            Theme.of(context).textTheme,
+          )
         ),
         home: HomePage(),
       ),
