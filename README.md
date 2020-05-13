@@ -5,5 +5,5 @@ A Flutter application that uses the spacex graphql api to look at previous and f
 
 # Live Demo:
 
-https://spacex-launches-graphql.netlify.app/#/
+https://spacex-launches-graphql.netlify.app/
 
