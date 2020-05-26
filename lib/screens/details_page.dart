@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spacex_graphql/models/graphql/graphql_api.dart';
 import 'package:spacex_graphql/util/util.dart';
+import 'package:number_display/number_display.dart';
 
 class DetailsPage extends StatefulWidget {
   final PastLaunchesList$Query$LaunchesPast data;
@@ -15,10 +16,14 @@ class DetailsPage extends StatefulWidget {
 
 class _DetailsPageState extends State<DetailsPage> {
   List<String> imageUrls;
+  Display display;
 
   @override
   void initState() {
     imageUrls = widget.data.links.flickr_images;
+    display = createDisplay(
+      length: 4
+    );
     super.initState();
   }
 
@@ -143,7 +148,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       color: Color(0xffAAAAAA)),
                   children: [
                     TextSpan(
-                        text: "\$${rocket.rocket.cost_per_launch}",
+                        text: "\$${display(rocket.rocket.cost_per_launch)}",
                         style: TextStyle(color: Colors.green))
                   ]),
             ),
